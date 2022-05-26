@@ -30,7 +30,7 @@ namespace Ssg.Wpf.Controls
             inputDirectory = _config.GetSection("folders").GetSection("inputMarkdownFiles").Value;
             outputDirectory = _config.GetSection("folders").GetSection("outputHtmlFiles").Value;
 
-            MessageBox.Show(inputDirectory);
+            //MessageBox.Show(inputDirectory);
 
             ListFiles();
             
@@ -57,29 +57,23 @@ namespace Ssg.Wpf.Controls
 
         private void btnConvertToHtml_Click(object sender, RoutedEventArgs e)
         {
-            bool answerYes = MessageBox.Show(inputDirectory, "Please confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes;
+            bool answerYes = MessageBox.Show($"Converti files in directory {inputDirectory}?", "Please confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes;
 
             if (answerYes)
             {
                 MarkdownToHtml.ConvertDirectoryFiles(inputDirectory, outputDirectory);
+
+                MarkdownToHtml.CopyImagesFolder(inputDirectory, Path.Combine(outputDirectory, "wpf"));
+                MarkdownToHtml.CopyImagesFolder(inputDirectory, Path.Combine(outputDirectory, "web"));
             }
 
             MessageBox.Show("OK - Files converted");
 
         }
 
-        private void GetFilesDirectories()
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            // This will get the current WORKING directory (i.e. \bin\Debug)
-            string workingDirectory = Environment.CurrentDirectory;
-            // This will get the current PROJECT directory
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-
-            inputDirectory = Path.Combine(projectDirectory, "Files", "input");
-            outputDirectory = Path.Combine(projectDirectory, "Files", "output");
-
-            //return inputDirectory;
+            ((Window)this.Parent).Close();
         }
-
     }
 }

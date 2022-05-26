@@ -15,15 +15,7 @@
 
         <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
             
-                <ListBox x:Name="fileNames">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                
             
         </Grid>
         
@@ -33,11 +25,7 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Button x:Name="btnToggleSidebar" Content="Open File" Click="btnToggleSidebar_Click" Margin="5" Width="60" />
-                    <Button x:Name="btnOpenFile" Content="Open File" Click="btnOpenFile_Click" Margin="5" Width="60" />
-                    <TextBlock x:Name="txtFileName" Margin="20 0 0 0" FontSize="20" />
-                </StackPanel>                
+               
                 
                 <WebBrowser Grid.Row="1" x:Name="htmlContent"></WebBrowser>
             

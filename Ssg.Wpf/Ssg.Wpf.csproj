@@ -23,11 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Files\input\" />
-    <Folder Include="Files\output\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Ssg.Core\Ssg.Core.csproj" />
   </ItemGroup>
 

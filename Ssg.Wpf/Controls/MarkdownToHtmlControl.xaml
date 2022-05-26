@@ -7,9 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <TextBlock Text="Hello world" />
-        <Button Content="Convert to HTML" Margin="5 0" Width="50"
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Convert" Margin="5 0" Width="70"
                 Click="btnConvertToHtml_Click"/>
+            <Button Content="Close" Margin="5 0" Width="70"
+                Click="btnClose_Click"/>
+        </StackPanel>
         <ListBox x:Name="fileNames">
             <ListBox.ItemTemplate>
                 <DataTemplate>
